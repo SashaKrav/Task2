@@ -1,0 +1,8 @@
+- hosts: web2 web3
+  tasks:
+  - debug:
+      msg: "{{ ansible_os_family }}"
+  - name: Choose OS
+    include_tasks: "{{ ansible_os_family }}.yml"
+    register: output
+    ignore_errors: yes 
